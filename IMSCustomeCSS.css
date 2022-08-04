@@ -1,0 +1,738 @@
+﻿.dfwp-item {
+	width:24%;
+	display:inline-block;
+	background:#CCCCCC;
+	margin:2px;
+}
+
+#cbqwpctl00_ctl47_g_bfebf4d6_eb99_4cb0_ba09_a8b6957f0f4f .dfwp-item {
+	width:32%;
+	display:inline-flexbox;
+	float:right;
+	background:none;
+	margin:2px;
+}
+
+
+#cbqwpctl00_ctl47_g_c0dd8224_768e_4606_84c8_0d614c3ade96 > ul > li{
+	width:24% !important;
+
+}
+#cbqwpctl00_ctl47_g_c0dd8224_768e_4606_84c8_0d614c3ade96 > ul > li > ul > li{
+	width:95% !important;
+}
+
+#cbqwpctl00_ctl47_g_c0dd8224_768e_4606_84c8_0d614c3ade96 > ul > li > ul > li > div.item {
+	padding-bottom: 0px !important;
+    padding-top: 0px;
+    padding-right: 0px;
+	clear: both;
+}
+
+/***FIRST STYLE THE BUTTON***/ 
+
+input#myButton {
+	width: 250px;
+	-moz-box-shadow: 9px 11px 12px -6px #9fb4f2;
+	-webkit-box-shadow: 9px 11px 12px -6px #9fb4f2;
+	box-shadow: 9px 11px 12px -6px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1E4C90), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #1E4C90 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1E4C90', endColorstr='#476e9e',GradientType=0);
+	background-color:#1E4C90;
+	-moz-border-radius:14px;
+	-webkit-border-radius:14px;
+	border-radius:16px;
+	border:2px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:14px;
+	font-weight:bold;
+	padding:12px 14px;
+	text-decoration:none;
+	text-shadow:0px 2px 0px #182a57;
+}
+input#myButton:hover {
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
+	background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
+	background-color:#476e9e;
+}
+input#myButton:active {
+	position:relative;
+	top:1px;
+	background-color: red;
+}
+
+/***This change SharePoint to Tohocentral in the top of the page ***/
+
+
+
+
+/***Buttons for Information Technology Page ***/
+input#myButtonIT {
+	width: 260px;
+	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1E4C90), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #1E4C90 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1E4C90', endColorstr='#476e9e',GradientType=0);
+	background-color:#1E4C90;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	border:2px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:16px;
+	font-weight:bold;
+	padding:7px 37px;
+	text-decoration:none;
+	text-shadow:3px 1px 0px #283966;
+
+}
+input#myButtonIT:hover {
+	
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #455f8c));
+	background:-moz-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #455f8c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#455f8c',GradientType=0);
+	background-color:#476e9e;
+}
+input#myButtonIT:active {
+	position:relative;
+	top:1px;
+}
+
+
+/***Buttons for Front Page***/
+input#myButtonIT2{
+	width: 250px;
+	height:50px;
+	-moz-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	-webkit-box-shadow: 0px 0px 0px 2px #9fb4f2;
+	box-shadow: 0px 0px 0px 2px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1E4C90), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #1E4C90 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1E4C90', endColorstr='#476e9e',GradientType=0);
+	background-color:#1E4C90;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:11px;
+	border:2px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:12px;
+	font-weight:bold;
+	padding:5px 20px;
+	text-decoration:none;
+	text-shadow:3px 1px 0px #283966;
+
+}
+input#myButtonIT2:hover {
+	
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #455f8c));
+	background:-moz-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #455f8c 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #455f8c 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#455f8c',GradientType=0);
+	background-color:#476e9e;
+}
+input#myButtonIT2:active {
+	position:relative;
+	top:1px;
+}	
+	
+	/****Popup Buttons****/
+	
+input#myButtonPopup {
+	
+	-moz-box-shadow: 9px 11px 12px -6px #9fb4f2;
+	-webkit-box-shadow: 9px 11px 12px -6px #9fb4f2;
+	box-shadow: 9px 11px 12px -6px #9fb4f2;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #1E4C90), color-stop(1, #476e9e));
+	background:-moz-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-webkit-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-o-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:-ms-linear-gradient(top, #1E4C90 5%, #476e9e 100%);
+	background:linear-gradient(to bottom, #1E4C90 5%, #476e9e 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#1E4C90', endColorstr='#476e9e',GradientType=0);
+	background-color:#1E4C90;
+	-moz-border-radius:12px;
+	-webkit-border-radius:14px;
+	border-radius:14px;
+	border:2px solid #4e6096;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:20px;
+	font-weight:bold;
+	padding:12px 14px;
+	text-decoration:none;
+	text-shadow:0px 2px 0px #182a57;
+}
+input#myButtonPopup:hover{
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #476e9e), color-stop(1, #7892c2));
+	background:-moz-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-webkit-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-o-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:-ms-linear-gradient(top, #476e9e 5%, #7892c2 100%);
+	background:linear-gradient(to bottom, #476e9e 5%, #7892c2 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#476e9e', endColorstr='#7892c2',GradientType=0);
+	background-color:#476e9e;
+}
+input#myButtonPopup:active{
+	position:relative;
+	top:1px;
+	background-color: red;
+}
+
+
+/****Temporary code for corona virus message ***/
+	.column.right > .zoneWrapper{
+	display:none;
+	background-color:
+}
+	.column.right > .lower{	
+    background-color: gainsboro;
+	padding-top: 12px;
+	width: 96%;
+}
+	#WebPartWPQ9_ChromeTitle{
+	font-weight:bold;
+}
+
+/* New buttons on the main page of tohocentral */
+
+div#ctl00_ctl47_g_306492b0_0400_4073_a533_2f15367e6948_csr ul.cbs-List{
+	/* height: 300px;
+
+	display:grid;
+	
+	flex-direction: row;
+	justify-content:space-evenly;
+	align-items:flex-start;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto auto; */
+	
+
+	 display: flex;
+	 flex-direction:row;
+	 flex-wrap: wrap;
+	 justify-content: center;
+	
+}
+div#ctl00_ctl47_g_306492b0_0400_4073_a533_2f15367e6948_csr ul.cbs-List li{
+
+	background-color: rgba(198, 204, 212, 0.2);
+	box-shadow: gray 8px 8px 8px 0px;
+	width: 340px;
+	margin:10px;
+	text-align:start;
+
+}
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	padding:0px;
+	margin:0px;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div.cbs-picture3LinesContainer{
+
+	padding:6px;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div.cbs-picture3LinesContainer  img{
+	border-radius: 15%;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div.cbs-picture3LinesContainer h2.cbs-picture3LinesLine1{
+	margin-top:5px 0 0 0;
+}
+
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div  div.cbs-picture3LinesLine2{
+	height: fit-content;
+	white-space: inherit;
+	overflow: auto;
+	text-overflow: ellipsis;
+}
+
+/* It cange the font and width for the new buttons with icons in tohocentral main page */
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+	width:48%;
+	margin:10px 4px;
+	}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	font-size: 1.2em;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div  div.cbs-picture3LinesLine2 a{
+	font-size:.8em;
+	}
+
+@media screen and (max-width: 320px) {
+	
+	.col-xs-12{
+		padding-left:0px!important;
+	}
+
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li {
+		float: left!important;
+		padding: 0 4px;
+		margin-top: 5px;
+		min-height: 180px!important;
+		width:100%;	
+
+	}
+
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li > div > div > a > img  {
+		max-width: 100% !important;
+		max-height: 20%;
+		display: block;
+		margin: auto;
+		margin:0px!important;
+		width:100%;
+	}
+
+	.ms-noWrap {
+		font-size: 1em!important;
+	}
+
+
+	.tohoc-iconWrapper, .lower{
+	padding:0px!important;
+	margin:0px;
+	}
+
+	#tohoc-search {
+		background-color: #e1e0e0;
+		padding-left: 15px;
+	}
+
+	.MainRow{
+
+	width:100%;
+	padding:0px;
+	margin:0px;
+	}
+
+	#tohoc-pageTitle .ms-core-pageTitle{
+		font-size:.6em!important;
+	}
+	.hrL, .hrR{
+		display:none;
+	}
+
+	.column.left.col-xs-12.col-md-4{
+	padding-left: 0px;
+	}
+
+	.column center.mediumBreakNoGut.col-xs-12.col-md-4{
+		padding-left:0px!important;
+	}
+
+	.column.right.col-xs-12.col-md-4{
+		padding-left:0px;
+	}
+
+	div.col-xs-12.tabControl{
+		padding:0px!important;
+	}
+
+	.slidesjs-control > a > img{
+		width:98%;
+		margin:auto;
+		padding-left:10px;
+	}
+	
+	div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+
+	width:200px;
+	}
+
+}
+
+@media screen and (max-width: 375px){
+
+	.col-xs-12{
+		padding-left:inherit;
+	}
+
+	#tohoc-pageTitle .ms-core-pageTitle{
+		font-size:.7em!important;
+	}
+	.ms-rteThemeForeColor-1-1{
+		font-size: .8em;
+	}
+
+	.hrL, .hrR{
+		display:none;
+	}
+
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li {
+		float: left!important;
+		padding: 0 4px;
+		margin-top: 5px;
+		min-height: 180px!important;
+		width:100%;	
+	}
+
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li > div > div > a > img  {
+		max-width: 100% !important;
+		max-height: 20%;
+		display: block;
+		margin: auto;
+		margin:0px!important;
+		width:100%;
+	}
+
+	.col-xs-12.tabControl{
+
+		padding-left: 0px;
+	}
+
+	.slidesjs-control > a > img{
+		width:100%;
+		margin:auto;
+		padding-left:10px;
+	}
+	
+	div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+
+		width:320px;
+		}
+				
+}
+
+
+@media screen and (max-width: 414px){
+
+	.col-xs-12{
+		padding-left:inherit;
+	}
+
+	#tohoc-pageTitle .ms-core-pageTitle{
+		font-size:.8em!important;
+	}
+	.hrL, .hrR{
+		display:none;
+	}
+
+	span, p{
+		font-size:1em;
+	}
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li {
+		float: left!important;
+		padding: 0 4px;
+		margin-top: 5px;
+		min-height: 180px!important;
+		width:100%;	
+
+	}
+
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li > div > div > a > img  {
+		max-width: 100% !important;
+		max-height: 20%;
+		display: block;
+		margin: auto;
+		margin:0px!important;
+		width:100%;
+	}
+
+	.col-xs-12.tabControl{
+
+		padding-left: 0px;
+	}
+
+	div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+
+		width:320px;
+		}
+
+		/* It cange the font and width for the new buttons with icons in tohocentral main page */
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+	width:48%;
+	margin:10px 4px;
+	}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	font-size: 1.1em;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div  div.cbs-picture3LinesLine2 a{
+	font-size:.8em;
+	}
+	
+		}
+
+@media screen and (max-width: 650px){
+	#tohoc-pageTitle .ms-core-pageTitle{
+		font-size:.5em!important;
+	}
+	.hrL, .hrR{
+		display:none;
+	}
+
+	.column.left .column.center .zoneWrapper{
+		width: 98%;
+	}
+
+	.cbs-DataContainer{
+		text-align: center;
+	}
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li > div > div > a > img  {
+		width: 50%;
+	}
+
+	/* It cange the font and width for the new buttons with icons in tohocentral main page */
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+	width:320px;
+	}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	font-size: 1.4em;
+}
+
+
+
+}
+
+
+@media screen and (min-width: 768px) {
+
+	.cbs-DataContainer{
+		text-align: center;
+	}
+	.column.left.col-xs-12.col-md-4, .column.center.mediumBreakNoGut.col-xs-12.col-md-4, .column.right.col-xs-12.col-md-4{
+		width:33.33333%;
+		padding-left:5px;
+		padding-right:5px;
+	}
+
+	#tohoc-pageTitle .ms-core-pageTitle{
+		font-size:.7em!important;
+	}
+
+	.ms-rteThemeForeColor-1-1{
+		font-size: .75em;
+	}
+
+	.smallBreakWrapper{
+		background:none!important;
+		padding-top:0px!important;
+	}
+
+
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li {
+		float: left!important;
+		padding: 0 4px;
+		margin-top: 5px;
+		min-height: 180px!important;
+		width:20%;	
+
+	}
+
+	#ctl00_ctl47_g_8641e0ff_588f_4803_9300_4723f1ba3d3f_csr > ul > li > div > div > a > img  {
+		max-width: 100% !important;
+		max-height: 20%;
+		display: block;
+		margin: auto;
+		margin:0px!important;
+		width:100%;
+	}
+
+	.slidesjs-control > a > img{
+		width:100%;
+		margin:auto;
+		padding-left:10px;
+	}
+
+	.titleIcon{
+		font-size:.8em;
+	}
+
+	.titleIcon:visited{
+		color:#7892c2;
+	}
+	
+	.column.right > .zoneWrapper{
+	display:none;
+	background-color:
+}
+	.column.right > .lower{	
+    background-color: gainsboro;
+    padding-top: 12px;
+}
+	#WebPartWPQ9_ChromeTitle{
+	font-weight:bold;
+}
+	.col-sm-push-2{
+	left:0px!important;
+
+}
+
+/* It cange the font and width for the new buttons with icons in tohocentral main page */
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+	width:32%;
+	margin:10px 4px;
+	}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	font-size: 1.1em;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div  div.cbs-picture3LinesLine2 a{
+	font-size:.8em;
+	}
+
+}
+
+@media screen and (min-width: 900px){
+	/* It cange the font and width for the new buttons with icons in tohocentral main page */
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+	width:32%;
+	margin:10px 4px;
+	}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	font-size: 1.2em;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div  div.cbs-picture3LinesLine2 a{
+	font-size:.9em;
+	}
+
+
+}
+
+
+@media screen and (min-width: 1024px){
+
+
+	#tohoc-pageTitle .ms-core-pageTitle{
+		font-size:.7em!important;
+	}
+
+	.ms-rteThemeForeColor-1-1{
+		font-size: .75em;
+	}
+	
+	/****Temporary code for corona virus message ***/
+	
+	.column.right > .zoneWrapper{
+	display:none;
+	background-color:
+}
+	.column.right > .lower{	
+    background-color: gainsboro;
+	padding-top: 12px;
+	width:96%
+}
+	#WebPartWPQ9_ChromeTitle{
+	font-weight:bold;
+}
+
+/* It cange the font and width for the new buttons with icons in tohocentral main page */
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+	width:32%;
+	margin:10px 4px;
+	}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	font-size: 1.4em;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div  div.cbs-picture3LinesLine2 a{
+	font-size:1em;
+	}
+
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List div > div.cbs-picture3LinesImageContainer{
+	width: 60px;
+	height: 60px;
+}
+
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr div.cbs-picture3LinesDataContainer{
+	margin-left: 60px;
+	padding-left:2px;
+}
+
+/* New buttons on the main page of tohocentral */
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List{
+	/* height: 300px;
+	display:grid;	
+	flex-direction: row;
+	justify-content:space-evenly;
+	align-items:flex-start;
+	grid-template-columns: auto auto auto;
+	grid-template-rows: auto auto auto; */
+
+	 display: flex;
+	 flex-direction:row;
+	 flex-wrap: wrap;
+	 justify-content: left;
+	
+}
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li{
+
+	background-color: rgba(198, 204, 212, 0.2);
+	box-shadow: gray 8px 8px 8px 0px;
+	text-align:start;
+}
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li a.cbs-picture3LinesLine1Link h2{
+	padding:0px;
+	margin:0px;
+	font-weight: bold;
+	background:none;
+}
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div.cbs-picture3LinesContainer{
+
+	padding:6px;
+}
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div.cbs-picture3LinesContainer  img{
+	border-radius: 15%;
+	width:100%;
+	padding:2px;
+}
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div.cbs-picture3LinesContainer h2.cbs-picture3LinesLine1{
+	margin-top:5px 0 0 0;
+}
+div#ctl00_ctl47_g_f8c13689_e93a_483c_a587_2764342db422_csr ul.cbs-List li > div  div.cbs-picture3LinesLine2{
+	height: fit-content;
+	white-space: inherit;
+	overflow: auto;
+	text-overflow: ellipsis;
+}
