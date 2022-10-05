@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>TWA Water Quality Report</title>
+    <link rel="stylesheet" href="https://js.arcgis.com/3.31/esri/css/esri.css">
+<!---	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.min.css"> --->
+	   <!-- original -->
+	   
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
+  <!----  <link rel="stylesheet" type="text/css" href="../../src/css/bootstrapmap.css"> --->
+  
+   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  
+  
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  
+    <style>
+      html, body, #map {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      #search {
+        display: block;
+        position: absolute;
+        z-index: 3;
+        top: 20px;
+        left: 75px;
+      }
+	  
+	     #HomeButton {
+     display: block;
+        position: absolute;
+        z-index: 3;
+        top: 90px;
+        left: 18px;
+    }
+	#BasemapToggle {
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      z-index: 98;
+    }
+		
+	#panel, #flip{
+    bottom: 7%;
+    right: 1%;
+	margin-right: 10px;
+    position: absolute;
+    z-index: 99;
+    opacity: 0.9;
+	padding: 15px;
+    background-color: whitesmoke;
+    border-bottom-left-radius: 8px;
+    padding: 0px 0px 0px 10px;
+	//width:-10%;
+	
+  }
+   #panel {
+    padding: 15px;
+    display: none;
+  z-index: 98;
+ 
+  }
+  
+  
+  
+   /* Changing background color of panel during hovering with opacity */
+   /* #ffffff  very very important color that makes u see through the background color */
+  .panel  > .panel-heading:hover {
+    background-color: gray;
+   /* border-color: #ec971f !important; */
+    opacity: 0.6;
+    filter: alpha(opacity=60);
+    z-index: 100;
+}
+   
+   
+   /* Changing the background color of panel */
+   .panel > .panel-heading {
+    background-image: none;
+    background-color: #5b9bd5;
+    color: white;
+     overflow: hidden;!important;
+    z-index:65;
+
+}
+
+  
+
+ /* removes spacing between panel group for outdoor buttons. */
+
+.panel-group1 .panel + .panel {
+    margin-top: 0;
+}
+
+  
+      .spotlight {
+        z-index:-1;
+        position:absolute;
+        left:50%;
+        top:50%;
+        border-radius:50%;
+        opacity:0;
+        box-shadow:
+        inset rgba(0,0,0,0.25) 0px 0px 20px 20px,
+        rgba(0,0,0,0.25) 0px 0px 0px 1000px;
+        transition:all 1000ms;
+        -moz-transition:all 1000ms;
+        -webkit-transition:all 1000ms;
+      }
+      .spotlight-active {
+        z-index:2;
+        opacity:1;
+      }
+    </style>
+    
+    <script src="https://js.arcgis.com/3.31/"></script>
+    <script>
+            require([
+                "esri/map",
+
+                "esri/dijit/Geocoder",
+				"dojo/i18n!esri/nls/jsapi",
+                "esri/layers/ArcGISDynamicMapServiceLayer",
+                "esri/tasks/IdentifyTask",  
+                "esri/tasks/IdentifyParameters",
+                "esri/tasks/query",
+                 "esri/geometry/geometryEngine", 
+                 "esri/graphicsUtils", 
+                "esri/dijit/BasemapToggle",
+                "esri/dijit/Search",
+                "esri/dijit/OverviewMap",
+                "esri/dijit/HomeButton",
+                "esri/layers/FeatureLayer",
+                "esri/InfoTemplate",
+                'dojo/dnd/Moveable',
+                "esri/dijit/PopupTemplate",
+                "esri/dijit/Legend",
+                "esri/geometry/Extent",
+                "esri/graphic",
+                "esri/symbols/SimpleMarkerSymbol",
+                "esri/geometry/screenUtils",
+                "dojo/dom",
+                "dojo/dom-style",
+                "dojo/on",
+                "dojo/dom-construct",
+                "dojo/query",
+                "dojo/dom-attr",
+                "dojo/_base/Color",
+                "dojo/_base/lang",
+                "dojo/domReady!"
+            ], function(Map, Geocoder, esriBundle,ArcGISDynamicMapServiceLayer, IdentifyTask, IdentifyParameters, Query, geometryEngine, graphicsUtils,
+              BasemapToggle, Search, OverviewMap, HomeButton, FeatureLayer, InfoTemplate, Moveable,
+                PopupTemplate, Legend, Extent, Graphic, SimpleMarkerSymbol, screenUtils, dom, domStyle, on, domConstruct, query, domAttr, Color, lang) {
+                // create a map and instance of the geocoder widget here
+
+                //parser.parse();
+
+                var infoTemplate1;
+                var infoTemplate2;
+                var infoTemplate3;
+                var infoTemplate4;
+                var popup;
+                var map;
+                var TWA1;
+                var TWA2;
+
+				 //var esriBundle for changing name from esri geocoder to Search within Central Florida
+				esriBundle.widgets.Search.main.esriLocatorName = "Search within a service area";
+				//parser.parse();  
+		   
+				// name for the placeholder text for widget
+		 	
+				esriBundle.widgets.Search.main.placeholder = "search within a service area"
+					
+                map = new Map("map", {
+                    basemap: "streets",
+                    center: [-81.443204, 28.250149],
+                    zoom: 10
+                });
+
+                var toggle = new BasemapToggle({
+                    map: map,
+                    basemap: "satellite"
+                }, "BasemapToggle");
+                toggle.startup();
+
+
+                // Set popup
+                popup = map.infoWindow;
+                popup.highlight = false;
+                popup.titleInBody = true;
+                popup.domNode.className += " brown";
+
+                //map.infoWindow.resize(300, 320);
+
+                map.infoWindow.resize(204, 150);
+                //map.infoWindow.resize(200, 118);
+                //map.infoWindow.resize(300, 300);
+
+                 var handle = query(".title", map.infoWindow.domNode)[0];  
+                 var dnd = new Moveable(map.infoWindow.domNode, {  
+                     handle: handle  
+                 }); 
+
+                var search = new Search({
+                    map: map,
+                    //enableButtonMode: true,
+			        //enableLabel: false,
+                    showInfoWindowOnSelect: false,
+                    enableInfoWindow: true
+                }, dom.byId("search"));
+
+                geocoder = new Geocoder({  
+                        map: map,  
+                        autoComplete: true  
+                      },"search2");  
+                      geocoder.startup();  
+                
+                
+                
+                //geocoder.on("select", executeIdentifyTask);
+
+                var url = "http://services3.arcgis.com/PPOHFcbrL50ceHvX/arcgis/rest/services/Service_locations/FeatureServer/0";
+
+                 
+
+
+                // Query in assigning the appropriate inforwindow to the selected polygon
+
+                featureLayer = new FeatureLayer(url, {
+                    id: "service",
+                    mode: FeatureLayer.MODE_ONDEMAND,
+                    //refreshInterval: 1,
+                    outFields: ["*"],
+                    //infoTemplate: infoTemplate
+                });
+				
+				console.log(featureLayer.id);
+ 
+                featureLayer.on("load", function(evt1) {
+                         //var geom_layer = evt1.graphic.attributes;
+                         console.log(evt1);
+                });
+
+                map.addLayer(featureLayer); 
+
+                var sources = search.get("sources");
+
+                //HomeButton
+                var home = new HomeButton({
+                    map: map
+                }, "HomeButton");
+                home.startup();
+
+                //Create extent to limit search
+                var extent = new Extent({
+                    "spatialReference": {
+                        "wkid": 102100
+                    },
+                     "xmin": -9754498.518003,
+                    "xmax": -8908671.515229,
+                    "ymin": 2819737.132473,
+                    "ymax": 3632889.973984
+                });
+               
+			   // original extents for florida
+			  
+                map.on("click", showPopup);
+
+                //set the source's searchExtent to the extent specified above   
+                search.sources[0].searchExtent = extent;
+
+                //Infotemplate for Central
+                infoTemplate1 = new InfoTemplate();
+                infoTemplate1.setTitle('<b>${TWA_REPORT}</b>' + "<b>   REPORT</b>");
+                infoTemplate1.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Central%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Central%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>');
+                //infoTemplate1.setStyle("background-color: red");
+
+				//https://www.tohowater.com/customerservice/Water%20Quality%20Report/Eastern%20CCR%20CCR%202020.pdf
+				//https://www.tohowater.com/customerservice/Water%20Quality%20Report/Eastern%20CCR%20CCR%202020%20Spanish.pdf
+				
+                //Infotemplate for Eastern
+                infoTemplate2 = new InfoTemplate();
+                infoTemplate2.setTitle('<b>${TWA_REPORT}</b>' + "<b>     REPORT</b>");
+                infoTemplate2.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Eastern%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Eastern%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>');
+
+                //Infotemplate for Southern
+                infoTemplate3 = new InfoTemplate();
+                infoTemplate3.setTitle('<b>${TWA_REPORT}<b>' + "<b>     REPORT</b>");
+                infoTemplate3.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Southern%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Southern%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>');
+
+                // Infotemplate for Western
+                infoTemplate4 = new InfoTemplate();
+                infoTemplate4.setTitle('<b>${TWA_REPORT}<b>' + "<b>     REPORT</b>");
+                infoTemplate4.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Western%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Western%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>');
+				
+				// Infotemplate for ST. CLOUD
+                infoTemplate5 = new InfoTemplate();
+                infoTemplate5.setTitle('<b>${TWA_REPORT}<b>' + "<b>     REPORT</b>");
+                infoTemplate5.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-09/St%20Cloud%20CCR%202021.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a> <br/><br/>');
+
+
+
+                map.on("load", function(evt) {
+                    var legend = new Legend({
+                        map: map,
+                        layerInfos: [{
+                            layer: featureLayer,
+                            title: "SERVICE_AREAS"
+                        }]
+                    }, "legendDiv");
+
+                    legend.startup();
+                });
+
+
+                // Auto-recenter map when screen changes size
+                autoRecenter(map);
+
+                // Recenter the map when the window changes size
+                function autoRecenter(map) {
+                    var resizeDelay = 100;
+                    on(map, 'load', function(map) {
+                        on(window, 'resize', map, map.resize);
+                    });
+                    on(map, 'resize', function(extent, width, height) {
+                        map.__resizeCenter = map.extent.getCenter();
+                        //map.centerAt(map.__resizeCenter); 
+
+                        //map.removeLayer(featureLayer);
+
+
+                        setTimeout(function() {
+                            //  if (document.getElementById("HomeButton").checked) {
+
+
+                            on(dom.byId("HomeButton"), "click", map.centerAt(map.__resizeCenter));
+
+                            map.centerAt(map.__resizeCenter);
+                            // }
+                        }, resizeDelay);
+
+
+                    });
+                }
+
+
+                //make sure to start up the widget!
+                //search.startup();
+
+                //map.on("load", enableSpotlight);
+                search.on("select-result", showLocation);
+                search.on("clear-search", removeSpotlight);
+                on(dom.byId("HomeButton"), "click", removeSpotlight);
+
+               // on(search, "search-results", showLocation_searchresults);
+
+
+
+                     $(document).ready(function(){
+
+                //     // code to show the panel for the legend upon reload and hide as needed
+                    $("#panel").show();
+                    $("#flip").click(function(){
+                       $("#panel").toggle("slow");
+                   });
+                 });
+
+
+                function showinforwindow(TWA, graphic) {
+                    if (TWA == 'WESTERN') {
+                        //map.removeLayer(featureLayer);
+                        map.infoWindow.hide()
+                        graphic.setInfoTemplate(infoTemplate4)
+
+                    }
+
+                    if (TWA == 'SOUTHERN') {
+                        //map.removeLayer(featureLayer);
+                        map.infoWindow.hide()
+                        graphic.setInfoTemplate(infoTemplate3)
+
+                    }
+
+                    if (TWA == 'EASTERN') {
+                        //map.removeLayer(featureLayer);
+                        map.infoWindow.hide()
+                        graphic.setInfoTemplate(infoTemplate2)
+
+                    }
+
+                    if (TWA == 'CENTRAL') {
+                        //map.removeLayer(featureLayer);
+                        map.infoWindow.hide()
+                        graphic.setInfoTemplate(infoTemplate1)
+
+                    }
+					  if (TWA == 'ST. CLOUD') {
+                        //map.removeLayer(featureLayer);
+                        map.infoWindow.hide()
+                        graphic.setInfoTemplate(infoTemplate5)
+
+                    }
+                }
+
+
+
+                //on(featureLayer, 'click', function() {
+                featureLayer.on("click", function(evt) {
+                         map.graphics.clear();
+                         var graphic = featureLayer; 
+                         
+                      // assign the TWA_REPORT attribute variable to TWA
+                      var TWA = evt.graphic.attributes.TWA_REPORT
+
+                    showinforwindow(TWA, graphic)
+                    //x = TWA.string()
+                    //alert(x)
+                });
+
+                
+
+
+
+                //search.set("value","cali");
+                //console.log(search.inputNode);
+
+                function selectrecord() {
+                    //map.infoWindow.show();
+                    map.removeLayer(featureLayer)
+                    //map.infoWindow.hide();
+                }
+
+
+                function showLocation(e) {
+                    map.graphics.clear();
+                    //featureLayer.refresh(); // refreshes the featurelayer anytime the search method is called
+					console.log(e);
+                    var point = e.result.feature.geometry;
+                    var symbol = new SimpleMarkerSymbol().setStyle(
+                        SimpleMarkerSymbol.STYLE_SQUARE).setColor(
+                        new Color([0, 0, 0, 0.7])
+                    );
+
+                    var graphic = new Graphic(point, symbol);
+                    map.graphics.add(graphic);
+
+            
+                   var queryPoint = new Query();
+                   queryPoint.geometry = point;
+
+
+                   featureLayer.selectFeatures(queryPoint, FeatureLayer.SELECTION_NEW, function(features) {
+					
+					console.log(features);
+                    // if (intersect == true){
+                      if(features.length>0){
+
+                    var TWA1 = features[0].attributes.TWA_REPORT;                
+                    console.log("TWA");
+					
+                         if (TWA1 == 'CENTRAL') {
+                             //map.removeLayer(featureLayer);
+                             map.infoWindow.hide()
+                             //graphic.setInfoTemplate(infoTemplate1)
+                             map.infoWindow.setTitle("CENTRAL");
+                             map.infoWindow.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Central%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Central%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>'+e.result.feature.attributes.Match_addr);
+                             map.infoWindow.show(e.result.feature.geometry);
+
+                             console.log('central')
+                         } else if (TWA1 == 'WESTERN') {
+                             //map.removeLayer(featureLayer);
+                             map.infoWindow.hide()
+                             map.infoWindow.setTitle("WESTERN");
+                             map.infoWindow.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Western%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Western%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>'+e.result.feature.attributes.Match_addr);
+                             map.infoWindow.show(e.result.feature.geometry);
+                             console.log('western')
+
+                         } else if (TWA1 == 'SOUTHERN') {
+                             //map.removeLayer(featureLayer);
+                             map.infoWindow.hide()
+                             map.infoWindow.setTitle("SOUTHERN");
+                             map.infoWindow.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Southern%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Southern%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>'+e.result.feature.attributes.Match_addr);
+                             map.infoWindow.show(e.result.feature.geometry);
+                             console.log('southern')
+
+                         } else if (TWA1 == 'EASTERN') {
+                             //map.removeLayer(featureLayer);
+                             map.infoWindow.hide()
+                             map.infoWindow.setTitle("EASTERN");
+                             map.infoWindow.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-07/Eastern%202021%20CCR.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a>' + "/" + '<a href = "https://tohowater.com/sites/default/files/2022-07/Eastern%202021%20CCR%20Spanish.pdf" target="_blank"><strong><i><font color="#1918a0">' + "Español" + '</i></strong></font></a> <br/><br/>'+e.result.feature.attributes.Match_addr);
+                             map.infoWindow.show(e.result.feature.geometry);
+                             console.log('eastern')
+
+                         }
+						 
+						 else if (TWA1 == 'ST. CLOUD') {
+                             //map.removeLayer(featureLayer);
+                             map.infoWindow.hide()
+                             map.infoWindow.setTitle("ST. CLOUD");
+                             map.infoWindow.setContent('<b style ="color:green">REPORT 2021</b><br/>' + '<a href = "https://tohowater.com/sites/default/files/2022-09/St%20Cloud%20CCR%202021.pdf" target="_blank"><strong><i><font color="#1918a0">' + "English" + '</i></strong></font></a> <br/><br/>' + 
+							 e.result.feature.attributes.Match_addr);
+                             map.infoWindow.show(e.result.feature.geometry);
+                             console.log('ST. CLOUD')
+
+                         }
+
+                       
+                      }
+                  
+                  else{
+                        map.infoWindow.hide()
+                        map.infoWindow.anchor = "top";
+                        map.infoWindow.setTitle("OUTSIDE SERVICE AREA");
+                        map.infoWindow.setContent(e.result.feature.attributes.Match_addr);
+                        map.infoWindow.show(e.result.feature.geometry);
+                  }})
+
+
+
+                }
+
+
+
+
+                function removeSpotlight() {
+                    //query(".spotlight").removeClass("spotlight-active");
+                    map.infoWindow.hide();
+                    map.graphics.clear();
+                }
+
+                function showPopup(evt) {
+                    console.log(evt);
+                    if (evt.graphic == undefined) {
+                        console.log("out");
+                        map.infoWindow.anchor = "top";
+                        map.infoWindow.setTitle("<b>OUTSIDE SERVICE AREA</b>");
+                        map.infoWindow.setContent('<b style ="color:black">You are outside the service area</b>')
+                        map.infoWindow.show(evt.mapPoint);
+                    }
+                }
+
+
+                //search.set("sources", sources);
+                //Set the sources above to the search widget
+        search.set("sources", sources);
+
+         search.startup();
+		
+      });
+    </script>
+  </head>
+  <body>
+
+
+    <div id="search"></div>
+ 
+	<div id="HomeButton"></div>           
+    <div id="map" ></div> 
+	 <div id="BasemapToggle"></div>
+	 
+	 
+		<a id="flip" href="#"><strong style = "font-size: 100%;font-weight:normal;font color=#1918a0;margin-right:20px;margin-bottom:40px"><i>Legend</i></strong></a>
+<div id="panel">
+
+<div id="legendDiv"></div>
+
+	  
+
+
+</div>	
+
+
+  </body> 
+</html>
